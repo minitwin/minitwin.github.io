@@ -1,0 +1,783 @@
+<!doctype html><meta charset=utf-8>
+
+<head>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <link href="css/misc.css" rel="stylesheet" type="text/css">
+
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '');
+    </script>
+</head>
+
+<title>CVPR 2025 Submission #7381</title>
+
+<div class="col-sm-12" style="text-align: center;">
+    <h1 class="name"><strong>CVPR 2025 Submission #7381</strong><br>Crafting a Miniature Interactive World from a Single Image</h1><br>
+</div>
+
+<!-- Table of Contents -->
+<div class="col-sm-12" style="text-align: center;">
+    <h3>Table of Contents</h3>
+    <ul style="list-style-type: none; padding: 0;">
+        <li><a href="#baseline-comparisons">Baseline Comparisons</a></li>
+        <li><a href="#dynamics-effects">Dynamics Effects</a></li>
+        <li><a href="#applications">Applications</a></li>
+    </ul>
+</div>
+
+<div class="main">
+    <section class="section" id="baseline-comparisons">
+        <div class="container">
+          
+            <hr>
+            <h1 style="text-align:center; margin-top: 0pt; margin-bottom: 0pt;">Baseline Comparisons</h1>
+
+            <div class="col-12 text-center">
+                <p style="text-align:center">
+                    In this section, we compare the videos generated from our framework with three state-of-the-art (SOTA) I2V models: Gen-3, Pika and Kling. We carefully designed the prompt to describe the motion outcome, and uses motion brush to control Kling. Our framework employs initial velocity control. Results show that our method can follow text instructions while maintaining plausible physics.
+                </p>
+            </div><br>
+
+            <div class="container text-center">
+                <div class="row align-items-center my-4">
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center">
+                        <img src="./videos/1/apple.png" class="img-fluid" alt="Input Image">
+                        <h5 class="mt-2">"Red apple rolls on the table."</h5>
+                    </div>
+                    <div class="col-lg-10 col-md-9 col-sm-8 col-12">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/1/1.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Kling 1.0</h5>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/1/2.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Runway Gen-3</h5>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/1/3.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Pika 1.5</h5>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/1/4.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Ours</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><br>
+            
+            <div class="container text-center">
+                <div class="row align-items-center my-4">
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center">
+                        <img src="./videos/2/tennis.jpg" class="img-fluid" alt="Input Image">
+                        <h5 class="mt-2">"Tennis ball bouncing on the ground."</h5>
+                    </div>
+                    <div class="col-lg-10 col-md-9 col-sm-8 col-12">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/2/1.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Kling 1.0</h5>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/2/2.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Runway Gen-3</h5>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/2/3.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Pika 1.5</h5>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/2/4.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Ours</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><br>            
+
+            <div class="container text-center">
+                <div class="row align-items-center my-4">
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center">
+                        <img src="./videos/18/dog.jpg" class="img-fluid" alt="Input Image">
+                        <h5 class="mt-2">"The dog is deflated and collapses."</h5>
+                    </div>
+                    <div class="col-lg-10 col-md-9 col-sm-8 col-12">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/18/4.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Kling 1.0</h5>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/18/3.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Runway Gen-3</h5>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/18/1.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Pika 1.5</h5>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/18/2.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Ours</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><br>
+            
+            <div class="container text-center">
+                <div class="row align-items-center my-4">
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center">
+                        <img src="./videos/12/12.jpg" class="img-fluid" alt="Input Image">
+                        <h5 class="mt-2">"The book falls and the orange rolls to the front."</h5>
+                    </div>
+                    <div class="col-lg-10 col-md-9 col-sm-8 col-12">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/12/3.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Kling 1.0</h5>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/12/2.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Runway Gen-3</h5>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/12/4.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Pika 1.5</h5>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/12/1.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Ours</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><br>            
+
+            <div class="container text-center">
+                <div class="row align-items-center my-4">
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center">
+                        <img src="./videos/7/7.jpg" class="img-fluid" alt="Input Image">
+                        <h5 class="mt-2">"The toy falls off the chair."</h5>
+                    </div>
+                    <div class="col-lg-10 col-md-9 col-sm-8 col-12">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/7/1.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Kling 1.0</h5>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/7/2.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Runway Gen-3</h5>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/7/3.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Pika 1.5</h5>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/7/4.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Ours</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><br>
+            
+            <div class="container text-center">
+                <div class="row align-items-center my-4">
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center">
+                        <img src="./videos/10/car.png" class="img-fluid" alt="Input Image">
+                        <h5 class="mt-2">"The car bounces up and moves forward."</h5>
+                    </div>
+                    <div class="col-lg-10 col-md-9 col-sm-8 col-12">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/10/1.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Kling 1.0</h5>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/10/2.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Runway Gen-3</h5>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/10/3.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Pika 1.5</h5>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/10/4.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Ours</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><br>
+            
+            <div class="container text-center">
+                <div class="row align-items-center my-4">
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center">
+                        <img src="./videos/8/elephant.jpg" class="img-fluid" alt="Input Image">
+                        <h5 class="mt-2">"Push the elephant from back."</h5>
+                    </div>
+                    <div class="col-lg-10 col-md-9 col-sm-8 col-12">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/8/2.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Kling 1.0</h5>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/8/1.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Runway Gen-3</h5>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/8/3.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Pika 1.5</h5>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/8/4.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Ours</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><br>
+            
+            <div class="container text-center">
+                <div class="row align-items-center my-4">
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center">
+                        <img src="./videos/23/cat.jpg" class="img-fluid" alt="Input Image">
+                        <h5 class="mt-2">"The cat jumps forward."</h5>
+                    </div>
+                    <div class="col-lg-10 col-md-9 col-sm-8 col-12">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/23/3.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Kling 1.0</h5>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/23/2.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Runway Gen-3</h5>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/23/4.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Pika 1.5</h5>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/23/1.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Ours</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><br>
+
+            <div class="container text-center">
+                <div class="row align-items-center my-4">
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center">
+                        <img src="./videos/14/potato.jpg" class="img-fluid" alt="Input Image">
+                        <h5 class="mt-2">"Apply a downward force and the plush toy bounces up."</h5>
+                    </div>
+                    <div class="col-lg-10 col-md-9 col-sm-8 col-12">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/14/4.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Kling 1.0</h5>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/14/2.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Runway Gen-3</h5>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/14/3.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Pika 1.5</h5>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/14/1.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Ours</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><br>
+            
+            <div class="container text-center">
+                <div class="row align-items-center my-4">
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center">
+                        <img src="./videos/6/manyapple.jpg" class="img-fluid" alt="Input Image">
+                        <h5 class="mt-2">"The apples collide with each other."</h5>
+                    </div>
+                    <div class="col-lg-10 col-md-9 col-sm-8 col-12">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/6/1.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Kling 1.0</h5>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/6/2.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Runway Gen-3</h5>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/6/3.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Pika 1.5</h5>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                    <video controls loop autoplay muted>
+                                        <source src="./videos/6/4.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <h5 class="mt-2">Ours</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><br>
+
+            <div class="row align-items-center my-4">
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center">
+                    <img src="./videos/24/rabbit.jpg" class="img-fluid" alt="Input Image">
+                    <h5 class="mt-2">"The three rabbits jump forward."</h5>
+                </div>
+                <div class="col-lg-10 col-md-9 col-sm-8 col-12">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                            <div class="embed-responsive embed-responsive-1by1">
+                                <video controls loop autoplay muted>
+                                    <source src="./videos/24/3.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <h5 class="mt-2">Kling 1.0</h5>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                            <div class="embed-responsive embed-responsive-1by1">
+                                <video controls loop autoplay muted>
+                                    <source src="./videos/24/2.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <h5 class="mt-2">Runway Gen-3</h5>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                            <div class="embed-responsive embed-responsive-1by1">
+                                <video controls loop autoplay muted>
+                                    <source src="./videos/24/4.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <h5 class="mt-2">Pika 1.5</h5>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                            <div class="embed-responsive embed-responsive-1by1">
+                                <video controls loop autoplay muted>
+                                    <source src="./videos/24/1.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <h5 class="mt-2">Ours</h5>
+                        </div>
+                    </div>
+                </div>
+            </div><br>            
+
+        </div>
+    </section><br>
+
+    <section class="section" id="dynamics-effects">
+        <div class="container">
+            <hr>
+            <h1 style="text-align:center; margin-top: 0pt; margin-bottom: 0pt;">Dynamics Effects</h1>
+
+            <div class="col-12 text-center">
+                <p style="text-align:center">
+                    In this section, we showcase the dynamics effects generated by our framework. We can generate various dynamics from the same input image by changing the initial velocity or editing the material. The results indicate our framework's capability to generate consistent and realistic physical behaviors.
+                </p>
+            </div>
+
+            <div class="row align-items-center my-4">
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center">
+                    <img src="./videos/28/28.jpg" class="img-fluid" alt="Input Image">
+                    <h5 class="mt-2">We change the materials of the two objects.</h5>
+                </div>
+                <div class="col-lg-10 col-md-9 col-sm-8 col-12">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+                            <div class="embed-responsive embed-responsive-1by1">
+                                <video controls loop autoplay muted>
+                                    <source src="./videos/28/1.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <h5 class="mt-2">Rigid & Rigid</h5>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+                            <div class="embed-responsive embed-responsive-1by1">
+                                <video controls loop autoplay muted>
+                                    <source src="./videos/28/2.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <h5 class="mt-2">Elastic & Rigid</h5>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+                            <div class="embed-responsive embed-responsive-1by1">
+                                <video controls loop autoplay muted>
+                                    <source src="./videos/28/3.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <h5 class="mt-2">Soft & Soft</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row align-items-center my-4">
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center">
+                    <img src="./videos/29/29.png" class="img-fluid" alt="Input Image">
+                    <h5 class="mt-2">We change the initial velocity of the Teddy bear.</h5>
+                </div>
+                <div class="col-lg-10 col-md-9 col-sm-8 col-12">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+                            <div class="embed-responsive embed-responsive-1by1">
+                                <video controls loop autoplay muted>
+                                    <source src="./videos/29/1.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <h5 class="mt-2">Jump to front</h5>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+                            <div class="embed-responsive embed-responsive-1by1">
+                                <video controls loop autoplay muted>
+                                    <source src="./videos/29/2.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <h5 class="mt-2">Jump to right</h5>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+                            <div class="embed-responsive embed-responsive-1by1">
+                                <video controls loop autoplay muted>
+                                    <source src="./videos/29/3.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <h5 class="mt-2">Jump to back</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row align-items-center my-4">
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center">
+                    <img src="./videos/30/30.png" class="img-fluid" alt="Input Image">
+                    <h5 class="mt-2">We change the initial velocity of the apple.</h5>
+                </div>
+                <div class="col-lg-10 col-md-9 col-sm-8 col-12">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                            <div class="embed-responsive embed-responsive-1by1">
+                                <video controls loop autoplay muted>
+                                    <source src="./videos/30/1.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <h5 class="mt-2">Roll to front</h5>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                            <div class="embed-responsive embed-responsive-1by1">
+                                <video controls loop autoplay muted>
+                                    <source src="./videos/30/2.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <h5 class="mt-2">Roll to rihgt front</h5>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                            <div class="embed-responsive embed-responsive-1by1">
+                                <video controls loop autoplay muted>
+                                    <source src="./videos/30/3.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <h5 class="mt-2">Roll to right</h5>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                            <div class="embed-responsive embed-responsive-1by1">
+                                <video controls loop autoplay muted>
+                                    <source src="./videos/30/4.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <h5 class="mt-2">Roll to right back</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+    </section>
+
+    <section class="section" id="applications">
+        <div class="container">
+            <hr>
+            <h1 style="text-align:center; margin-top: 0pt; margin-bottom: 0pt;">Applications</h1>
+
+            <div class="col-12 text-center">
+                <p style="text-align:center">
+                    Our video generation framework, MiniTwin, enables a range of exciting applications through its explicit representation. Here are just a few of the compelling use cases our system supports:
+                </p>
+            </div>
+
+            <div class="container text-center">
+                <br>
+                <div class="row justify-content-center">
+                    <div class="col-lg-3 col-md-3 col-xs-6 col-sm-3">
+                        <div style="height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <img src="./videos/31/teddy.jpg" class="img-fluid" style="max-width: 270px; height: auto;" alt="Input Image">
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-xs-6 col-sm-3" style="text-align: center;">
+                        <div style="height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <video controls loop autoplay muted style="width: 270px; height: auto;">
+                                <source src="./videos/31/1.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-xs-6 col-sm-3" style="text-align: center;">
+                        <div style="height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <video controls loop autoplay muted style="width: 270px; height: auto;">
+                                <source src="./videos/31/2.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+                <h5 style="text-align:center; margin-top: 0pt; margin-bottom: 10pt;">Dense 3D Tracking: Collapse and Bounce</h5>
+            </div>
+            <br>
+
+            <div class="container text-center">
+                <div class="row justify-content-center">
+                    <div class="col-lg-3 col-md-3 col-xs-6 col-sm-3">
+                        <div style="height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <img src="./videos/32/1.jpg" class="img-fluid" style="max-width: 270px; height: auto;" alt="Input Image">
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-xs-6 col-sm-3">
+                        <div style="height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <img src="./videos/32/2.jpg" class="img-fluid" style="max-width: 270px; height: auto;" alt="Input Image">
+                        </div>
+                    </div>
+                </div><br>
+                <div class="row justify-content-center">
+                    <div class="col-lg-3 col-md-3 col-xs-6 col-sm-3" style="text-align: center;">
+                        <div style="height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <video controls loop autoplay muted style="width: 270px; height: auto;">
+                                <source src="./videos/32/1.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-xs-6 col-sm-3" style="text-align: center;">
+                        <div style="height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <video controls loop autoplay muted style="width: 270px; height: auto;">
+                                <source src="./videos/32/2.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+                <h5 style="text-align:center; margin-top: 0pt; margin-bottom: 0pt;">Video Editing: We exchange one object between two scenes.</h5>
+                <br>
+            </div>
+            <br>
+
+            <div class="container text-center">
+                <div class="row justify-content-center">
+                    <div class="col-lg-3 col-md-3 col-xs-6 col-sm-3">
+                        <div style="height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <img src="./videos/7/7.jpg" class="img-fluid" style="max-width: 240px; height: auto;" alt="Input Image">
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-xs-6 col-sm-3" style="text-align: center;">
+                        <div style="height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <video controls loop autoplay muted style="width: 240px; height: auto;">
+                                <source src="./videos/7/5.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+                <h5 style="text-align:center; margin-top: 0pt; margin-bottom: 0pt;">Video Editing: We remove the chair while keeping the toy at initial position.</h5><br>
+            </div>
+            <br>
+
+            <div class="container text-center">
+                <div class="row justify-content-center">
+                    <div class="col-lg-3 col-md-3 col-xs-6 col-sm-3">
+                        <div style="height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <img src="./videos/33/sketch.png" class="img-fluid" style="max-width: 270px; height: auto;" alt="Input Image">
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-xs-6 col-sm-3" style="text-align: center;">
+                        <div style="height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <video controls loop autoplay muted style="width: 270px; height: auto;">
+                                <source src="./videos/33/1.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+                <h5 style="text-align:center; margin-top: 0pt; margin-bottom: 0pt;">Video Generation From Painting.</h5>
+            </div>
+            <br>
+        </div>
+    </section>
+</div>
